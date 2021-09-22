@@ -11,18 +11,18 @@ interface DetailPageProps /* extends RouteComponentProps */{
 
 
 interface AlbumData{
-    data:{
-        duration:number,
-        rank:number,
-        album:{
-                cover_big:string,
-                title:string,
-                release_date:string
-            },
-        artist:{
-                name:string
-                }
-        }
+    duration:number,
+    rank:number,
+   
+    album:{
+            cover_big:string,
+            title:string,
+            release_date:string, 
+            tracklist:string,
+        },
+    artist:{
+            name:string
+            }
 }
 type mixedProps=RouteComponentProps & DetailPageProps&AlbumData
 const DetailPage = ({match}:mixedProps) => {
@@ -54,16 +54,16 @@ const DetailPage = ({match}:mixedProps) => {
               <Row>
                   <Col xs={6} className="mx-auto">
                   <Card >
-           <Card.Img variant="top" src={data.data.album.cover_big} />
+                      {console.log(data.album.cover_big)}
+        <Card.Img variant="top" src={data.album.cover_big} /> 
            <Card.Body>
-             <Card.Title>Card Title</Card.Title>
+             <Card.Title>Album Detail</Card.Title>
              <Card.Text>
-               Some quick example text to build on the card title and make up the bulk of
-               the card's content.
+               TrackList:{data.album.tracklist}
              </Card.Text>
            </Card.Body>
            <ListGroup className="list-group-flush">
-             <ListGroupItem>Cras justo odio</ListGroupItem>
+             <ListGroupItem>Artist Name:{data.artist.name}</ListGroupItem>
              <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
              <ListGroupItem>Vestibulum at eros</ListGroupItem>
            </ListGroup>

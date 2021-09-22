@@ -16,7 +16,7 @@ const Home = ({searchQuery}:HomeProps) => {
     const [songs,setSongs]=useState<Songs[]>([])
     const fetchData=async()=>{
         try {
-            let response=await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q="+(searchQuery?searchQuery:"eminium"))
+            let response=await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q="+(searchQuery?searchQuery:"maroon5"))
             if(response.ok){
                 let fetchedData=await response.json()
                 console.log(fetchedData.data)

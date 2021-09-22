@@ -13,6 +13,7 @@ interface DetailPageProps /* extends RouteComponentProps */{
 interface AlbumData{
     duration:number,
     rank:number,
+    link:string
    
     album:{
             cover_big:string,
@@ -63,13 +64,13 @@ const DetailPage = ({match}:mixedProps) => {
              </Card.Text>
            </Card.Body>
            <ListGroup className="list-group-flush">
-             <ListGroupItem>Title:{data.artist.name}</ListGroupItem>
-             <ListGroupItem>{}</ListGroupItem>
-             <ListGroupItem>{}</ListGroupItem>
+             <ListGroupItem>Title:{data.album.title}</ListGroupItem>
+             <ListGroupItem>Release Date:{data.album.release_date}</ListGroupItem>
+             <ListGroupItem>Duration:{data.duration}</ListGroupItem>
            </ListGroup>
            <Card.Body>
              <Card.Link href="#"> TrackList:{data.album.tracklist}</Card.Link>
-             <Card.Link href="#">{}</Card.Link>
+             <Card.Link href="#">{data.link}</Card.Link>
            </Card.Body>
          </Card>
                   </Col>

@@ -14,18 +14,19 @@ interface AlbumData{
     data:{
         duration:number,
         rank:number,
-     album:{
-         cover_big:string,
-         title:string,
-         release_date:string
-     },
-     artist:{
-       name:string
-     }
-}}
+        album:{
+                cover_big:string,
+                title:string,
+                release_date:string
+            },
+        artist:{
+                name:string
+                }
+        }
+}
 type mixedProps=RouteComponentProps & DetailPageProps&AlbumData
 const DetailPage = ({match}:mixedProps) => {
-    const [data, setData]=useState<AlbumData>({})
+    const [data, setData]=useState<AlbumData| null>(null)
      {console.log(match.params.id)}
 
      const fetchData=async()=>{
@@ -33,8 +34,9 @@ const DetailPage = ({match}:mixedProps) => {
             const response=await fetch("https://striveschool-api.herokuapp.com/api/deezer/track/"+match.params.id)
             if(response.ok){
                 const fetchedData=await response.json()
-                console.log(fetchedData.album)
+                console.log("fetcheddata",fetchedData)
                 setData(fetchedData)
+                console.log("data",data)
             }
          } catch (error) {
              console.log(error)
@@ -52,7 +54,7 @@ const DetailPage = ({match}:mixedProps) => {
               <Row>
                   <Col xs={6} className="mx-auto">
                   <Card >
-           <Card.Img variant="top" src={data.album.cover_big} />
+           <Card.Img variant="top" src={data.data.album.cover_big} />
            <Card.Body>
              <Card.Title>Card Title</Card.Title>
              <Card.Text>

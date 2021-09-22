@@ -54,22 +54,22 @@ const DetailPage = ({match}:mixedProps) => {
               <Row>
                   <Col xs={6} className="mx-auto">
                   <Card >
-                      {console.log(data.album.cover_big)}
+                      {console.log(data.album.title)}
         <Card.Img variant="top" src={data.album.cover_big} /> 
            <Card.Body>
              <Card.Title>Album Detail</Card.Title>
              <Card.Text>
-               TrackList:{data.album.tracklist}
+             Artist Name:{data.artist.name}
              </Card.Text>
            </Card.Body>
            <ListGroup className="list-group-flush">
-             <ListGroupItem>Artist Name:{data.artist.name}</ListGroupItem>
-             <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-             <ListGroupItem>Vestibulum at eros</ListGroupItem>
+             <ListGroupItem>Title:{data.artist.name}</ListGroupItem>
+             <ListGroupItem>{}</ListGroupItem>
+             <ListGroupItem>{}</ListGroupItem>
            </ListGroup>
            <Card.Body>
-             <Card.Link href="#">Card Link</Card.Link>
-             <Card.Link href="#">Another Link</Card.Link>
+             <Card.Link href="#"> TrackList:{data.album.tracklist}</Card.Link>
+             <Card.Link href="#">{}</Card.Link>
            </Card.Body>
          </Card>
                   </Col>
